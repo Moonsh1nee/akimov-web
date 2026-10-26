@@ -1,6 +1,6 @@
 // Static export has no image optimizer, so variants are pre-built by scripts/build-images.mjs.
 // Keep WIDTHS in sync with that script.
-const WIDTHS = [480, 800, 1200];
+const WIDTHS = [480, 800, 1200, 1600, 2200];
 
 export default function imageLoader({ src, width }: { src: string; width: number }) {
   const match = /^\/img\/([^/]+)\.(?:webp|jpe?g|png)$/i.exec(src);
