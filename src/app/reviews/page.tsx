@@ -18,10 +18,10 @@ export default function ReviewsPage() {
           as="h1"
           eyebrow="Отзывы"
           title="Что говорят заказчики"
-          lead="Здесь будут настоящие отзывы с именами и результатами. Пока на их месте черновики."
+          lead="Отзыв заказчицы магазина Muiraje настоящий. Остальные места пока заняты черновиками, заменю их настоящими."
         />
         <ReviewCards withAddCard />
-        {REVIEWS_ARE_DRAFTS ? <p className="draft">Черновики: имена, тексты и фото заменю настоящими, когда придут.</p> : null}
+        {REVIEWS_ARE_DRAFTS ? <p className="draft">Отзывы с именами «Имя Фамилия» и подписью «фото» пока черновики.</p> : null}
         <TrustRow items={TRUST} />
       </div>
     </div>

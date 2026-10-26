@@ -7,7 +7,7 @@ export function ReviewCards({ withAddCard = false }: { withAddCard?: boolean }) 
         <figure className="rev" key={i}>
           <blockquote>«{r.quote}»</blockquote>
           <div className="who">
-            <div className="ava">фото</div>
+            <div className={`ava${r.initials ? " real" : ""}`}>{r.initials ?? "фото"}</div>
             <figcaption>
               <b>{r.name}</b>
               <span>{r.role}</span>

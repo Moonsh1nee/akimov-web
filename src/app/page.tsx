@@ -120,7 +120,7 @@ export default function HomePage() {
         <SectionHead
           eyebrow="Отзывы"
           title="Что говорят заказчики"
-          lead="Черновики: имена, тексты и фото заменю настоящими, когда пришлют."
+          lead="Первый отзыв настоящий. Остальные места пока заняты черновиками, заменю их настоящими."
         />
         <ReviewCards />
         <TrustRow items={TRUST} />

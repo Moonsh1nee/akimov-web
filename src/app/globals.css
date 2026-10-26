@@ -325,3 +325,4 @@ html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
 /* Tailwind preflight strips list markers; the case-page lists need them back */
 .story ul{list-style:disc;padding-left:20px}
 .story li::marker{color:var(--acc)}
+.ava.real{border:1px solid var(--line);background:var(--acc);color:var(--acc-fg);font:500 18px var(--display)}
