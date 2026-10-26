@@ -61,7 +61,7 @@ const siteLd = {
   name: "Akimov Web",
   description: SITE.description,
   url: absoluteUrl("/"),
-  image: absoluteUrl("/img/me.webp"),
+  image: absoluteUrl("/og.png"),
   email: SITE.email,
   founder: { "@type": "Person", name: SITE.name },
   address: { "@type": "PostalAddress", addressLocality: SITE.city, addressCountry: "RU" },

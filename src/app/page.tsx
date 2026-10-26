@@ -130,10 +130,7 @@ export default function HomePage() {
       </Section>
 
       <Section>
-        <div className="about">
-          <div className="photo">
-            <Image src="/img/me.webp" alt="Владислав Акимов" width={900} height={1125} sizes="380px" loading="lazy" />
-          </div>
+        <div className="about solo">
           <div>
             <span className="mono">Обо мне</span>
             <h2>Привет, я Владислав</h2>

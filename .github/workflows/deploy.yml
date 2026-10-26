@@ -36,6 +36,8 @@ jobs:
           path: out
 
   deploy:
+    # Publish only once the real domain is configured (repository variable SITE_URL).
+    if: vars.SITE_URL != ''
     needs: build
     runs-on: ubuntu-latest
     environment:

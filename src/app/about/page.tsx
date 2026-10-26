@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { CtaBand, Facts, IconCards, Section, SectionHead } from "@/components/ui";
 import { FACTS, RULES, STACK_GROUPS } from "@/data/content";
 import { pageMetadata } from "@/lib/seo";
@@ -15,10 +14,7 @@ export default function AboutPage() {
     <>
       <div className="g">
         <div className="wrap page">
-          <div className="about" style={{ alignItems: "start" }}>
-            <div className="photo">
-              <Image src="/img/me.webp" alt="Владислав Акимов" width={900} height={1125} sizes="380px" priority />
-            </div>
+          <div className="about solo">
             <div>
               <span className="mono">Обо мне</span>
               <h1>Привет, я Владислав</h1>

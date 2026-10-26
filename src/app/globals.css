@@ -320,3 +320,4 @@ html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
 .cmp tbody th{font-weight:500;width:24%;color:var(--fg)}
 .form .consent a{text-decoration:underline}
 .form .ft{font:500 20px/1.12 var(--display);letter-spacing:-.03em}
+.about.solo{grid-template-columns:minmax(0,1fr);max-width:760px}
