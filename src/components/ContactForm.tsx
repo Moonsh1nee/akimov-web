@@ -32,7 +32,7 @@ export function ContactForm() {
 
   return (
     <form className="form" onSubmit={submit} noValidate>
-      <h3>Или оставьте заявку</h3>
+      <p className="ft">Или оставьте заявку</p>
       <label htmlFor={`${uid}-name`}>
         Как к вам обращаться
         <input type="text" id={`${uid}-name`} name="name" autoComplete="name" placeholder="Анна" />

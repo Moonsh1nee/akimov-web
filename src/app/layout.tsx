@@ -11,6 +11,7 @@ import "./globals.css";
 const unbounded = Unbounded({
   variable: "--font-unbounded",
   subsets: ["cyrillic", "latin"],
+  weight: "500",
   display: "swap",
 });
 
