@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Akimov Web
 
-## Getting Started
+Сайт-визитка разработчика-фрилансера: продаёт услуги заказчикам и показывает работы. Статический Next.js, деплой на GitHub Pages.
 
-First, run the development server:
+**Зачем он существует.** Нужен понятный нетехническому человеку сайт, который быстро открывается, находится в поиске и объясняет, чем чистый код отличается от конструктора. Весь контент лежит в `src/data`, поэтому цены, отзывы и описания проектов правятся без правки вёрстки.
+
+| Раздел | Адрес | Что внутри |
+| --- | --- | --- |
+| Главная | `/` | Первый экран, выгоды, кейсы с галереями, сравнение с WordPress и Tilda, пакеты, отзывы, о себе, процесс, FAQ, форма |
+| Работы | `/works/`, `/works/<slug>/` | Список и страница каждого кейса: задача, что сделано, результат, скриншоты |
+| Услуги | `/services/` | Три пакета, что входит, сравнение, вопросы по ценам |
+| Обо мне | `/about/` | Принципы работы и стек |
+| Отзывы | `/reviews/` | Черновики до появления настоящих |
+| Контакты | `/contacts/` | Telegram, почта, форма-интерфейс |
+
+## Запуск
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3005
+npm run build    # статика в out/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Переменные окружения описаны в `.env.example`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Где что править
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Что | Файл |
+| --- | --- |
+| Контакты, имя, реквизиты, плашка «Беру проекты» | `src/data/site.ts` |
+| Проекты, скриншоты и подписи к ним | `src/data/projects.ts` (картинки в `public/img`) |
+| Цены и состав пакетов | `src/data/pricing.ts` |
+| Отзывы | `src/data/reviews.ts` |
+| Вопросы и ответы | `src/data/faq.ts` |
+| Остальные тексты (выгоды, сравнение, шаги, стек) | `src/data/content.ts` |
+| Цвета, шрифты, вёрстка | `src/app/globals.css` |
 
-## Learn More
+## Деплой на GitHub Pages и домен
 
-To learn more about Next.js, take a look at the following resources:
+1. Создайте публичный репозиторий и запушьте ветку `main`.
+2. В `Settings > Pages` выберите источник `GitHub Actions`.
+3. В `Settings > Secrets and variables > Actions > Variables` добавьте `SITE_URL` (например `https://домен.ru`). По желанию `YM_ID` (счётчик Метрики) и `YANDEX_VERIFICATION` (код подтверждения Вебмастера).
+4. Для своего домена создайте файл `public/CNAME` с одной строкой, самим доменом, у регистратора направьте A-записи на адреса GitHub Pages, а в `Settings > Pages` включите `Enforce HTTPS`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Каждый пуш в `main` запускает линтер, сборку и публикацию.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Технически интересное
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Тема без мигания.** Маленький скрипт в `<head>` читает сохранённую тему до первой отрисовки. Без него страница на миг показывала бы не ту палитру. Без сохранённого выбора работает системная тема через `prefers-color-scheme`.
+- **Одна страница сразу для людей и поисковиков.** FAQ, пакеты и каждый кейс отдают микроразметку (`FAQPage`, `Service`, `CreativeWork`) из тех же данных, что и вёрстка, поэтому они не расходятся.
+- **Галерея без библиотеки.** Лента скриншотов построена на нативном `scroll-snap`, а стрелки и точки только читают положение прокрутки. Свайп на телефоне работает штатно.
+- **Статика без компромиссов.** `output: "export"`, адреса с косой чертой на конце и предварительно сжатые WebP-скриншоты вместо серверной оптимизации картинок.
