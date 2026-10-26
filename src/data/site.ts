@@ -7,7 +7,7 @@ export const SITE = {
   description:
     "Разрабатываю сайты и интернет-магазины под ключ: лендинги, сайты услуг, магазины. Дизайн, код и запуск одним человеком. Волгоград, работаю удалённо по всей России.",
   // Production URL comes from the build env; set NEXT_PUBLIC_SITE_URL in CI once the domain is connected.
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://akimov-web.example").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://akimov-web.example").replace(/\/$/, ""),
   locale: "ru_RU",
   city: "Волгоград",
   telegram: { handle: "@Moonsh1ne_OP", url: "https://t.me/Moonsh1ne_OP" },
