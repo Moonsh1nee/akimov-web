@@ -4,11 +4,13 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import type { Shot } from "@/data/projects";
 
-type Props = { name: string; address: string; shots: Shot[]; priority?: boolean };
+type Props = { name: string; address: string; shots: Shot[]; priority?: boolean; compact?: boolean };
 
 const altFor = (name: string, caption: string) => `${name}: ${caption.split(/[:.]/)[0].slice(0, 70)}`;
 
-export function Gallery({ name, address, shots, priority = false }: Props) {
+export function Gallery({ name, address, shots, priority = false, compact = false }: Props) {
+  // Rendered width hint so the browser picks the smallest sufficient variant.
+  const sizes = compact ? "(min-width: 960px) 500px, 100vw" : "(min-width: 1200px) 1060px, 100vw";
   const track = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
   const last = shots.length - 1;
@@ -47,6 +49,7 @@ export function Gallery({ name, address, shots, priority = false }: Props) {
                   alt={altFor(name, s.caption)}
                   width={1440}
                   height={900}
+                  sizes={sizes}
                   priority={priority && n === 0}
                   loading={priority && n === 0 ? undefined : "lazy"}
                 />

@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/build-images.mjs",
     "dev": "next dev -p 3005",
+    "prebuild": "node scripts/build-images.mjs",
     "build": "next build",
+    "postbuild": "node scripts/fix-export-segments.mjs",
     "start": "next start",
     "lint": "eslint"
   },
@@ -20,6 +23,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

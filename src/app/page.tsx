@@ -57,7 +57,7 @@ export default function HomePage() {
                   <span>ostov-architects · главная</span>
                 </div>
                 <div className="shot">
-                  <Image src="/img/ostov-home.jpg" alt="Главный экран сайта Ostov Architects" width={1440} height={900} priority />
+                  <Image src="/img/ostov-home.webp" alt="Главный экран сайта Ostov Architects" width={1440} height={900} sizes="(min-width: 1040px) 540px, 100vw" priority fetchPriority="high" />
                 </div>
               </div>
               <div className="perks">
@@ -132,7 +132,7 @@ export default function HomePage() {
       <Section>
         <div className="about">
           <div className="photo">
-            <Image src="/img/me.webp" alt="Владислав Акимов" width={900} height={1125} loading="lazy" />
+            <Image src="/img/me.webp" alt="Владислав Акимов" width={900} height={1125} sizes="380px" loading="lazy" />
           </div>
           <div>
             <span className="mono">Обо мне</span>

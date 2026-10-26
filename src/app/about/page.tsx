@@ -17,7 +17,7 @@ export default function AboutPage() {
         <div className="wrap page">
           <div className="about" style={{ alignItems: "start" }}>
             <div className="photo">
-              <Image src="/img/me.webp" alt="Владислав Акимов" width={900} height={1125} priority />
+              <Image src="/img/me.webp" alt="Владислав Акимов" width={900} height={1125} sizes="380px" priority />
             </div>
             <div>
               <span className="mono">Обо мне</span>

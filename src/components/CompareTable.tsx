@@ -18,7 +18,7 @@ export function CompareTable() {
           <tbody>
             {COMPARE.rows.map(([label, ...cells]) => (
               <tr key={label}>
-                <td>{label}</td>
+                <th scope="row">{label}</th>
                 {cells.map((c, i) => (
                   <td key={i} className={i === cells.length - 1 ? "me" : undefined}>
                     {c}

@@ -4,11 +4,11 @@ import { type Project, PROJECTS, getProjectOrThrow } from "@/data/projects";
 import { Gallery } from "./Gallery";
 import { Chips } from "./ui";
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({ project, compact = false }: { project: Project; compact?: boolean }) {
   return (
     <article className="case">
       <div className="plate">
-        <Gallery name={project.name} address={project.address} shots={project.shots} />
+        <Gallery name={project.name} address={project.address} shots={project.shots} compact={compact} />
       </div>
       <div className="meta">
         <div>
@@ -42,12 +42,12 @@ export function HomeProjects() {
       </div>
       <ProjectCard project={p("ostov-architects")} />
       <div className="pair">
-        <ProjectCard project={p("getgrip")} />
-        <ProjectCard project={p("wisely")} />
+        <ProjectCard project={p("getgrip")} compact />
+        <ProjectCard project={p("wisely")} compact />
       </div>
       <div className="pair">
-        <ProjectCard project={p("fuel")} />
-        <ProjectCard project={p("cadence")} />
+        <ProjectCard project={p("fuel")} compact />
+        <ProjectCard project={p("cadence")} compact />
       </div>
     </>
   );
@@ -68,7 +68,7 @@ export function WorkList() {
                 <span>{p.address}</span>
               </div>
               <div className="shot">
-                {cover ? <Image src={cover} alt={`${p.name}: главный экран`} width={1440} height={900} loading="lazy" /> : null}
+                {cover ? <Image src={cover} alt={`${p.name}: главный экран`} width={1440} height={900} sizes="(min-width: 960px) 540px, 100vw" loading="lazy" /> : null}
               </div>
             </div>
             <div className="m">

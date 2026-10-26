@@ -11,14 +11,12 @@ import "./globals.css";
 const unbounded = Unbounded({
   variable: "--font-unbounded",
   subsets: ["cyrillic", "latin"],
-  weight: ["500", "700"],
   display: "swap",
 });
 
 const golos = Golos_Text({
   variable: "--font-golos",
   subsets: ["cyrillic", "latin"],
-  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -27,6 +25,8 @@ const jetbrains = JetBrains_Mono({
   subsets: ["cyrillic", "latin"],
   weight: ["400", "500"],
   display: "swap",
+  // Small caption labels only: not worth competing with the hero for bandwidth.
+  preload: false,
 });
 
 export const viewport: Viewport = {
