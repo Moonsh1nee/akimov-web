@@ -326,3 +326,27 @@ html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
 .story ul{list-style:disc;padding-left:20px}
 .story li::marker{color:var(--acc)}
 .ava.real{border:1px solid var(--line);background:var(--acc);color:var(--acc-fg);font:500 18px var(--display)}
+
+/* demo examples: /demo/ grid and the home-page strip */
+.dnote{max-width:70ch;margin:-12px 0 32px;border-left:3px solid var(--acc);padding:2px 0 2px 16px;color:var(--fg);font-size:16px;line-height:1.5}
+.dgrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
+.dcard{grid-column:span 2;display:flex;flex-direction:column;gap:18px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:12px 12px 22px;min-width:0}
+.dcard:nth-child(-n+2){grid-column:span 3}
+.dcard .frame{box-shadow:none}
+.dbody{display:flex;flex-direction:column;gap:10px;padding-inline:10px;flex:1}
+.dbody h3{font-size:22px}
+.dfor{color:var(--muted);font-size:15px}
+.dlist{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:6px;font-size:15px}
+.dlist li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px}
+.dlist li::before{content:"✓";font-weight:700;color:var(--ok)}
+.dprice{margin-top:auto;padding-top:8px;font-size:14px;color:var(--muted)}
+.dprice b{color:var(--fg);font-weight:600;font-variant-numeric:tabular-nums}
+.dcta{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.dstrip{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.dstrip a{display:grid;gap:4px;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:8px 8px 14px;height:100%;align-content:start}
+.dstrip a:hover{border-color:var(--acc)}
+.dstrip .shot{display:block;border-radius:10px;border:1px solid var(--line)}
+.dstrip b{font:500 15px/1.2 var(--display);letter-spacing:-.02em;padding:8px 6px 0}
+.dstrip a>span:last-child{font-size:13px;color:var(--muted);padding-inline:6px}
+.form{scroll-margin-top:96px}
+@media (max-width:1040px){.dgrid{grid-template-columns:minmax(0,1fr)}.dcard,.dcard:nth-child(-n+2){grid-column:auto}.dstrip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:6px;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}.dstrip li{flex:0 0 min(64vw,260px);scroll-snap-align:start}}

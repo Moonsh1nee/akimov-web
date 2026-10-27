@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
+import { demoPrefill, getDemo } from "@/data/demos";
 
 type Status = { kind: "idle" } | { kind: "error"; text: string } | { kind: "info"; text: string };
 
@@ -12,6 +13,14 @@ type Status = { kind: "idle" } | { kind: "error"; text: string } | { kind: "info
 export function ContactForm() {
   const uid = useId();
   const [status, setStatus] = useState<Status>({ kind: "idle" });
+  const text = useRef<HTMLTextAreaElement>(null);
+
+  // "Хочу такой же" on /demo/ links here with ?demo=<slug>; drop the site type into the project field.
+  useEffect(() => {
+    const demo = getDemo(new URLSearchParams(window.location.search).get("demo") ?? "");
+    const field = text.current;
+    if (demo && field && !field.value) field.value = demoPrefill(demo);
+  }, []);
 
   function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -31,7 +40,7 @@ export function ContactForm() {
   }
 
   return (
-    <form className="form" onSubmit={submit} noValidate>
+    <form className="form" id="form" onSubmit={submit} noValidate>
       <p className="ft">Или оставьте заявку</p>
       <label htmlFor={`${uid}-name`}>
         Как к вам обращаться
@@ -51,7 +60,7 @@ export function ContactForm() {
       </label>
       <label htmlFor={`${uid}-text`}>
         О проекте
-        <textarea id={`${uid}-text`} name="text" placeholder="Чем занимаетесь и что хотите от сайта" />
+        <textarea ref={text} id={`${uid}-text`} name="text" placeholder="Чем занимаетесь и что хотите от сайта" />
       </label>
       <label className="consent" htmlFor={`${uid}-agree`}>
         <input type="checkbox" id={`${uid}-agree`} name="agree" />

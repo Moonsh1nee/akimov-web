@@ -4,6 +4,7 @@ import { CompareTable, HonestNote } from "@/components/CompareTable";
 import { ContactBlock } from "@/components/ContactBlock";
 import { FaqList } from "@/components/FaqList";
 import { Plans } from "@/components/Plans";
+import { DemoStrip } from "@/components/DemoCards";
 import { HomeProjects } from "@/components/ProjectCards";
 import { ReviewCards } from "@/components/ReviewCards";
 import { Facts, IconCards, Section, SectionHead, Steps, TrustRow } from "@/components/ui";
@@ -91,6 +92,18 @@ export default function HomePage() {
           lead="Один заказ клиента, одно демо и четыре собственных продукта. В каждом можно полистать скриншоты."
         />
         <HomeProjects />
+      </Section>
+
+      <Section alt>
+        <SectionHead
+          eyebrow="Примеры"
+          title="Примеры, которые можно заказать"
+          lead="Пять живых демо с вымышленными компаниями: лендинг, запись, личный сайт, B2B и магазин. Откройте любое и попробуйте."
+        />
+        <DemoStrip />
+        <Link className="more-link" href="/demo/">
+          Смотреть все примеры →
+        </Link>
       </Section>
 
       <Section alt>

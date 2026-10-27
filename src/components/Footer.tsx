@@ -17,6 +17,7 @@ export function Footer() {
           <div className="links">
             <b>Разделы</b>
             <Link href="/works/">Работы</Link>
+            <Link href="/demo/">Примеры сайтов</Link>
             <Link href="/services/">Услуги и цены</Link>
             <Link href="/about/">Обо мне</Link>
             <Link href="/reviews/">Отзывы</Link>

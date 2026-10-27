@@ -5,7 +5,7 @@ import { absoluteUrl } from "@/lib/seo";
 export const dynamic = "force-static";
 
 // Legal pages are excluded until their real text is added.
-const STATIC_PATHS = ["/", "/works/", "/services/", "/about/", "/reviews/", "/contacts/"];
+const STATIC_PATHS = ["/", "/works/", "/demo/", "/services/", "/about/", "/reviews/", "/contacts/"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [...STATIC_PATHS, ...PROJECTS.map((p) => `/works/${p.slug}/`)];
